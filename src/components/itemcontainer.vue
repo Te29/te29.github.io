@@ -12,7 +12,8 @@
     		<div class="item_back item_container_style">
     			<div class="item_list_container" v-if="itemDetail.length > 0">
     				<header class="item_title">{{itemDetail[itemNum-1].topic_name}}</header>
-    				<ul>
+    				<p class="item_description">{{itemDetail[itemNum-1].description}}</p>
+					<ul>
     					<li  v-for="(item, index) in itemDetail[itemNum-1].topic_answer" @click="choosed(index, item.topic_answer_id)" class="item_list">
     						<span class="option_style" v-bind:class="{'has_choosed':choosedNum==index}">{{chooseType(index)}}</span>
     						<span class="option_detail">{{item.answer_name}}</span>
@@ -112,7 +113,7 @@ export default {
 			font-size: 0.6rem;
 			font-family: '黑体';
 			font-weight: 600;
-			color: #a57c50;
+			color: #000;
 			text-align: center;
 		}
 	}
@@ -163,17 +164,19 @@ export default {
     }
 	.item_title{
 		font-size: 0.65rem;
-		color: #00e;
+		color: #000;
 		line-height: 0.7rem;
+		padding-left: 1.2rem;
 	}
 	.item_list{
 		font-size: 0;
 		margin-top: 0.4rem;
 		width: 10rem;
+		padding-left: 1.2rem;
 		span{
 			display: inline-block;
 			font-size: 0.6rem;
-			color: #00e;
+			color: #000;
 			vertical-align: middle;
 		}
 		.option_style{
@@ -196,5 +199,11 @@ export default {
 			width: 7.5rem;
 			padding-top: 0.11rem;
 		}
+	}
+	.item_description {
+    font-size: 0.6rem;
+    color: #333;
+    margin-top: 0.5rem;
+	padding-left: 1.2rem;
 	}
 </style>
